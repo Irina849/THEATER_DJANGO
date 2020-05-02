@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="col-sm-12 my-auto ">
+        <div class="col-sm-12 my-auto">
+	{% if actor_event %}
+	 <table class="table table-condensed mt-5 " border="3" id="info-table">
+                <tr>
+                    <th>Event</th>
+                    <th>Plot</th>
+                    <th>Actor</th>
+                    <th>Role</th>
+                </tr>
+		{% for ae in actor_event %}
+		    <tr class="table table-condensed" border="3" id="info-table">
+		        <td class="align-middle">{{ ae.event }}</td>
+		        <td class="align-middle">{{ ae.event.comment_about_event }}</td>
+		        <td class="align-middle">{{ ae.actor }}</td>
+		        <td class="align-middle">{{ ae.role }}</td>
+		    </tr>
+		{% endfor %}
+		 </table>
+	{% else %}
+	  <p> INFO!</p>
+	{% endif %}
+</div>
+</div>
+
+{% endblock %}

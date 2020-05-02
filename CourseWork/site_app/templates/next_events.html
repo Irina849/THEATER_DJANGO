@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<div class="col-sm-12 my-auto ">
+	        <div class="col-sm-12 my-auto">
+				{% if nextEvents %}
+					<div class="row h-100 justify-content-center">
+						<div class="d-flex flex-column mb-3">
+	        				<div id="w">
+	            				<div class="text-center mt-5 mb-5">
+	                				<h2>NEXT EVENTS</h2>
+	            				</div>
+								{% for next in nextEvents %}
+									<div class="p-2 ">
+					                    <div class="d-flex">
+					                        <div class="mr-auto p-2">
+					                        	<h4 class="align-middle">{{ next.event.title_event }}</h4>
+					                        </div>
+					                        <div class="p-2">
+					                        	<h5 class="align-middle">{{ next.performace_date }}</h5>
+					                        </div>
+					                    </div>
+					                	<p class="align-middle">{{ next.event.comment_about_event }}</p>
+	            					</div>
+	            					<hr>
+	      						{% endfor %}
+							</div>
+						</div>
+					</div> 
+				{% else %}
+	  				<p>There are no performances in the theater.</p>
+				{% endif %}
+			</div>
+	</div>
+{% endblock %}

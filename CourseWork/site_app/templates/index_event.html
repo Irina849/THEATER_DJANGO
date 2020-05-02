@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="col-sm-12 my-auto ">
+        <div class="col-sm-12 my-auto">
+	{% if posters %}
+	 <table class="table table-condensed mt-5 " border="3" id="info-table">
+                <tr>
+                    <th>Title</th>
+                    <th>Perfomance date</th>
+                    <th>Director</th>
+                    <th>Description</th>
+                    
+                </tr>
+		{% for poster in posters %}
+		    <tr class="table table-condensed" border="3" id="info-table">
+		        <td class="align-middle">{{ poster.event.title_event }}</td>
+		        <td class="align-middle">{{ poster.performace_date }}</td>
+		        <td class="align-middle">{{ poster.event.director }}</td>
+		        <td class="align-middle">{{ poster.event.comment_about_event }}</td>
+		    </tr>
+		{% endfor %}
+		 </table>
+	{% else %}
+	  <p>There are no performances in the theater.</p>
+	{% endif %}
+</div>
+</div>
+
+{% endblock %}

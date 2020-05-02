@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="col-sm-12 my-auto ">
+        <div class="col-sm-12 my-auto">
+	{% if actors %}
+	 <table class="table table-condensed mt-5 " border="3" id="info-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Gender</th>
+                    <th>Birthdate</th>
+                </tr>
+		{% for actor in actors %}
+		    <tr class="table table-condensed" border="3" id="info-table">
+		        <td class="align-middle">{{ actor.firstname }}</td>
+		        <td class="align-middle">{{ actor.lastname }}</td>
+		        <td class="align-middle">{{ actor.gender }}</td>
+		        <td class="align-middle">{{ actor.birth_date }}</td>
+		    </tr>
+		{% endfor %}
+		 </table>
+	{% else %}
+	  <p>There are no actors in the theater.</p>
+	{% endif %}
+</div>
+</div>
+
+{% endblock %}

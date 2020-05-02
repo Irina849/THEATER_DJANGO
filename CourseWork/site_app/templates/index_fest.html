@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="col-sm-12 my-auto ">
+        <div class="col-sm-12 my-auto">
+	{% if fests %}
+	 <table class="table table-condensed mt-5 " border="3" id="info-table">
+                <tr>
+                    <th>Title</th>
+                    <th>Festival date</th>
+                    <th>Place</th>
+                    <th>Events</th>
+                </tr>
+		{% for fest in fests %}
+		    <tr class="table table-condensed" border="3" id="info-table">
+		        <td class="align-middle">{{ fest.title_fest }}</td>
+		        <td class="align-middle">{{ fest.festival_date }}</td>
+		        <td class="align-middle">{{ fest.place }}</td>
+		         <td class="align-middle">{{ fest.fest_events.all|join:", " }}</td>
+		    </tr>
+		{% endfor %}
+		 </table>
+	{% else %}
+	  <p>There are no festivals in the theater.</p>
+	{% endif %}
+</div>
+</div>
+
+{% endblock %}
